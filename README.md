@@ -1,5 +1,10 @@
 # Principios de programación
 
+## Archivos HTML
+
+- [Calculadora básica](index.html)
+- [Métodos de número](metodos.html)
+
 ## Tarea 3 
 
 sumatoria de numeros del 1 al 10
