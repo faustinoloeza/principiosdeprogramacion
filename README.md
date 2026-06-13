@@ -4,6 +4,12 @@
 
 - [Calculadora básica](index.html)
 - [Métodos de número](metodos.html)
+- [Lista de articulos](productos.html)
+
+## ver paginas
+- [Calculadora básica](https://faustinoloeza.github.io/principiosdeprogramacion/)
+- [Métodos de número](https://faustinoloeza.github.io/principiosdeprogramacion/metodos.html)
+- [Lista de articulos](https://faustinoloeza.github.io/principiosdeprogramacion/productos.html)
 
 ## Tarea 3 
 
