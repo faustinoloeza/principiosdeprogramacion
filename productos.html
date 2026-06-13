@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        .table-zebra tbody tr:nth-child(even) {
+            background-color: #aacbff;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="overflow-x-auto mx-auto px-4 my-6">
+        <h1 class="text-2xl font-bold">Lista de Productos</h1>
+        <select id="categoryFilter" class="select select-bordered w-full max-w-xs my-4">
+            <option value="">Todas las Categorías</option>
+        </select>
+        <table class="table table-zebra">
+            <thead class="bg-yellow-500 text-white">
+                <tr>
+                    <th>ID</th>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Categoria</th>
+                    <th>Stock</th>
+                    <th>Total de Stock</th>
+                </tr>
+            </thead>
+            <tbody id="products">
+            
+            </tbody>
+        </table>
+    </div>
+
+    <script src="productos.js"></script>
+    <script src="productos_acciones.js?v=2.0"></script>
+</body>
+
+</html>
