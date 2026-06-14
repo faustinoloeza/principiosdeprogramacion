@@ -4,18 +4,19 @@ let formatPesos = new Intl.NumberFormat('es-MX', {
     minimumFractionDigits: 2,
 });
 
-function loadProductsInLocal() {
-            const selectedCategory = event.target.value;
-            const filteredProducts = selectedCategory ? productsData.filter(product => product.categoria === selectedCategory) : productsData;
-            let productRow = ``;
-            filteredProducts.forEach(product => {
-                const precio =  formatPesos.format(Number(product.precio ?? 0));
-                const nombre = product.nombre ?? 'Sin nombre';
-                const categoria = product.categoria ?? 'Sin categoría';
-                const stock = product.stock ?? 'N/A';
-                const totalStock = formatPesos.format(Number(product.stock ?? 0) * Number(product.precio ?? 0));
+function loadProductsInLocal(
+    selectedCategory = ''
+) {
+    const filteredProducts = selectedCategory ? productsData.filter(product => product.categoria === selectedCategory) : productsData;
+    let productRow = ``;
+    filteredProducts.forEach(product => {
+        const precio = formatPesos.format(Number(product.precio ?? 0));
+        const nombre = product.nombre ?? 'Sin nombre';
+        const categoria = product.categoria ?? 'Sin categoría';
+        const stock = product.stock ?? 'N/A';
+        const totalStock = formatPesos.format(Number(product.stock ?? 0) * Number(product.precio ?? 0));
 
-                productRow += `<tr>
+        productRow += `<tr>
                                 <td>${product.id ?? ''}</td>
                                 <td>${nombre}</td>
                                 <td>${precio}</td>
@@ -24,8 +25,8 @@ function loadProductsInLocal() {
                                 <td>${totalStock}</td>
                             </tr>
                         `;
-            });
-            document.getElementById('products').innerHTML = productRow;
+    });
+    document.getElementById('products').innerHTML = productRow;
 }
 
 function loadCategories() {
@@ -41,18 +42,21 @@ function loadCategories() {
     categoryFilter.innerHTML = options;
 }
 
-function filterByCategory(){
-        const categoryFilter = document.getElementById('categoryFilter');
-        categoryFilter.addEventListener('change', (event) => {
-            const selectedCategory = event.target.value;
-            loadProductsInLocal(selectedCategory);
-        });
+function filterByCategory() {
+    const categoryFilter = document.getElementById('categoryFilter');
+    categoryFilter.addEventListener('change', (event) => {
+        const selectedCategory = event.target.value;
+        loadProductsInLocal(selectedCategory);
+    });
 }
-   
+
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Cargar categorías y productos al cargar la página
     loadCategories();
+    // Cargar productos sin filtro al cargar la página
     loadProductsInLocal();
+    // Configurar el filtro de categorías
     filterByCategory();
 });
 
